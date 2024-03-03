@@ -15,18 +15,19 @@
         <div class="row">
             <div class="col-md-6">
             <h1>Create Category</h1>
-            <form action="{{ route('categories.store')}}" method="post">
+            <form action="{{ route('categories.update'.$category->id)}}" method="post">
               @csrf
+              @method('put')
                 <div class="form-group">
                     <lable for="name">caterory name</lable>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="category name">
+                    <input type="text" class="form-control" id="name" value="{{$category->name}}" name="name" placeholder="category name">
                 </div>
                 <div class="form-group">
                     <lable for="name">caterory discription</lable>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="caterory discription">
+                    <input type="text" class="form-control" id="description" value="{{$category->description}}" name="description" placeholder="caterory discription">
                 </div>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-success inline-block" value="submit">
+                    <input type="submit" class="btn btn-success inline-block" value="update">
                 </div>
             </form>
             </div>
